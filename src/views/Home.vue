@@ -10,5 +10,17 @@
 <script>
 // @ is an alias to /src
 
-export default {};
+export default {
+  data: () => {
+    return {
+      apiKey: "1beb9b16669a6131e1ea97eb6eb4f883",
+      movie: {
+        title: "",
+        coverPhoto: "",
+        year: "",
+        category: "",
+      },
+    };
+  },
+};
 </script>
