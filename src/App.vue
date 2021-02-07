@@ -1,9 +1,14 @@
 <template>
   <div class="app">
     <div id="nav" class="nav">
-      <router-link to="/">Filmes nao curados</router-link>
-      <router-link to="liked-movies">Filmes Curtidos</router-link>
-      <router-link to="not-liked-movies">Filmes Nao Curtidos</router-link>
+      <img src="./assets\logo-viva-decora.png" alt="logo" class="nav__logo" />
+      <router-link class="nav__link" to="/">Filmes nao curados</router-link>
+      <router-link class="nav__link" to="liked-movies"
+        >Filmes Curtidos</router-link
+      >
+      <router-link class="nav__link" to="not-liked-movies"
+        >Filmes Nao Curtidos</router-link
+      >
     </div>
     <router-view></router-view>
   </div>
@@ -13,8 +18,41 @@
 export default {};
 </script>
 
-<style lang="sass">
-.app {
-  padding: 0
+<style lang="scss">
+$color-red-dark: #ff1c1c;
+$color-red-light: #ff5656;
+html {
+  padding: 0;
+}
+.nav {
+  position: relative;
+  padding: 2rem;
+  height: 12vh;
+  width: 100%;
+
+  background-image: linear-gradient(
+    to right,
+    $color-red-light,
+    $color-red-dark
+  );
+  text-align: center;
+  &__logo {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+  &__link,
+  &__link:visited,
+  &__link:link {
+    font-family: Verdana, sans-serif;
+    color: white;
+    text-decoration: none;
+    margin: 0 2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  &__link.router-link-exact-active {
+    border-bottom: 2px solid white;
+  }
 }
 </style>
