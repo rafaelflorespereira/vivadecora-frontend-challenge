@@ -1,11 +1,8 @@
 <template>
   <div class="home">
     <h1>Tela de filme nao curados</h1>
-    <router-link to="liked-movies">Filmes Curtidos</router-link>
-    <router-link to="not-liked-movies">Filmes Nao Curtidos</router-link>
     <button @click="getMovie">get movie</button>
     {{ movie }}
-    <router-view></router-view>
   </div>
 </template>
 
@@ -18,7 +15,8 @@ export default {
       apiKey: "1beb9b16669a6131e1ea97eb6eb4f883",
       movie: {
         title: "",
-        coverPhoto: "",
+        poster: "",
+        backdrop: "",
         year: "",
         genres: [],
         rating: "",
@@ -28,7 +26,7 @@ export default {
   },
   methods: {
     getMovie() {
-      let movieNumber = 550; //total 620,936
+      let movieNumber = "000100"; //total 620,936
       axios
         .get(
           "https://api.themoviedb.org/3/movie/" +
@@ -40,8 +38,11 @@ export default {
           console.log(response.data);
           var movieResponse = response.data;
           this.movie.title = movieResponse.title;
-          this.movie.coverPhoto =
-            "https://image.tmdb.org/t/p/w500/" + movieResponse.poster_path;
+          this.movie.poster =
+            "https://image.tmdb.org/t/p/original/" + movieResponse.poster_path;
+          this.movie.backdrop =
+            "https://image.tmdb.org/t/p/original/" +
+            movieResponse.backdrop_path;
           this.movie.year = movieResponse.release_date;
           // Genre always return in array
           movieResponse.genres.map((genre) =>

@@ -1,32 +1,20 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class="app">
+    <div id="nav" class="nav">
+      <router-link to="/">Filmes nao curados</router-link>
+      <router-link to="liked-movies">Filmes Curtidos</router-link>
+      <router-link to="not-liked-movies">Filmes Nao Curtidos</router-link>
     </div>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {};
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style lang="sass">
+.app {
+  padding: 0
 }
 </style>
