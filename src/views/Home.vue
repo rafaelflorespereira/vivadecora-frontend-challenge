@@ -1,17 +1,14 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Tela de filme nao curados</h1>
+    <router-link to="liked-movies">Filmes Curtidos</router-link>
+    <router-link to="not-liked-movies">Filmes Nao Curtidos</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
-export default {
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
-};
+export default {};
 </script>
