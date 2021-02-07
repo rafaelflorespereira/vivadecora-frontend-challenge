@@ -23,6 +23,11 @@ $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
 html {
   padding: 0;
+  background-image: linear-gradient(
+    to right,
+    $color-red-light,
+    $color-red-dark
+  );
 }
 .nav {
   position: relative;
