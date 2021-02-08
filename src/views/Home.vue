@@ -9,7 +9,7 @@
       <div
         class="card__background-image"
         :style="{
-          backgroundImage: `linear-gradient(transparent, rgba(255,255,255,0.5)), url('${movie.backdrop}')`,
+          backgroundImage: `linear-gradient(transparent, rgba(255,255,255,0.5)), url(${movie.backdrop})`,
         }"
       ></div>
       <div class="card__bottom">
@@ -84,7 +84,7 @@ export default {
               "https://image.tmdb.org/t/p/original" +
               movieResponse.backdrop_path;
           } else {
-            this.movie.backdrop = "'../assets/video-camera-vazio.png'";
+            this.movie.backdrop = require("../assets/video-camera-vazio.png");
           }
           this.movie.year = movieResponse.release_date;
           // Genre always return in array
