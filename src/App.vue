@@ -10,12 +10,32 @@
         >Filmes Nao Curtidos</router-link
       >
     </div>
-    <router-view></router-view>
+    <router-view
+      @notLikedMovies="getNotLikedMovies"
+      @likedMovies="getLikedMovies"
+      :likedMovies="likedMovies"
+      :notLikedMovies="notLikedMovies"
+    ></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => {
+    return {
+      likedMovies: [],
+      notLikedMovies: [],
+    };
+  },
+  methods: {
+    getLikedMovies(movie) {
+      this.likedMovies.push(movie);
+    },
+    getNotLikedMovies(movie) {
+      this.notLikedMovies.push(movie);
+    },
+  },
+};
 </script>
 
 <style lang="scss">

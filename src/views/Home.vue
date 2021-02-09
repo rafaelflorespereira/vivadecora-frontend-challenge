@@ -5,6 +5,7 @@
       alt="movie-background"
       class="home__background-image"
     />
+    <!-- //TODO: Transform this into a component -->
     <div class="card">
       <div
         class="card__background-image"
@@ -15,37 +16,41 @@
       <div class="card__bottom">
         <h3 class="card__bottom-heading">{{ movie.title }}</h3>
         <p class="card__bottom-subheading">
-          <span class="u-margin-right-small">{{ treatedYear }}</span>
-          <span class="u-margin-right-small">{{ treatedGenres }}</span>
+          <span class="u-margin-right-small">{{ treatedMovie.year }}</span>
+          <span class="u-margin-right-small">{{ treatedMovie.genres }}</span>
         </p>
         <p class="card__bottom-description">
-          {{ treatedSynopsys }}
+          {{ treatedMovie.treatedSynopsis }}
         </p>
         <span> <a href="#" class="card__bottom-link"> Synopsis</a></span>
         <div class="card__bottom-rating">
           <span v-for="rating in 5" :key="rating">
             <img
-              v-if="rating < treatedRating"
+              v-if="rating < treatedMovie.rating"
               src="..\assets\favorite.png"
               alt=""
             />
             <img v-else src="..\assets\favorite_.png" alt="" />
           </span>
           <div>
-            {{ treatedRatingText }}
+            {{ treatedMovie.ratingText }}
           </div>
         </div>
       </div>
     </div>
-
+    <!-- //TODO: end todo -->
     <section class="action-points">
-      <a class="action-points__btn action-points__btn-n-curti" @click="getMovie"
+      <a
+        class="action-points__btn action-points__btn-n-curti"
+        @click="notLikedMovies"
         >Não curti!</a
       >
       <a class="action-points__btn action-points__btn-pular" @click="getMovie"
         >pular</a
       >
-      <a class="action-points__btn action-points__btn-curti" @click="getMovie"
+      <a
+        class="action-points__btn action-points__btn-curti"
+        @click="likedMovies"
         >Curti!</a
       >
     </section>
@@ -60,6 +65,7 @@ export default {
     return {
       apiKey: "1beb9b16669a6131e1ea97eb6eb4f883",
       movie: {
+        id: 0,
         title: "",
         poster: "",
         backdrop: "",
@@ -77,6 +83,7 @@ export default {
   methods: {
     getMovie() {
       let movieNumber = Math.floor(620936 * Math.random()); //total 620,936
+      this.movie.id = movieNumber;
       axios
         .get(
           "https://api.themoviedb.org/3/movie/" +
@@ -85,12 +92,13 @@ export default {
             this.apiKey
         )
         .then((response) => {
-          console.log(response.data);
           var movieResponse = response.data;
           this.movie.title = movieResponse.title;
           if (movieResponse.poster_path != null) {
             this.movie.poster =
               "https://image.tmdb.org/t/p/original" + movieResponse.poster_path;
+          } else {
+            this.movie.poster = require("../assets/video-camera-vazio.png");
           }
           if (movieResponse.backdrop_path != null) {
             this.movie.backdrop =
@@ -112,22 +120,31 @@ export default {
           console.log(error);
         });
     },
+    likedMovies() {
+      this.$emit("likedMovies", this.treatedMovie);
+      this.getMovie();
+    },
+    notLikedMovies() {
+      console.log(this.treatedMovie);
+      this.$emit("notLikedMovies", this.treatedMovie);
+      this.getMovie();
+    },
   },
   computed: {
-    treatedYear() {
-      return this.movie.year.slice(0, 4);
-    },
-    treatedGenres() {
-      return this.movie.genres.join("/");
-    },
-    treatedRating() {
-      return Math.floor(this.movie.rating / 2);
-    },
-    treatedSynopsys() {
-      return this.movie.synopsis.slice(0, 100) + "...";
-    },
-    treatedRatingText() {
-      return `( ${this.movie.voteCount} avaliações )`;
+    treatedMovie() {
+      return {
+        id: this.movie.id,
+        title: this.movie.title,
+        poster: this.movie.poster,
+        backdrop: this.movie.backdrop,
+        year: this.movie.year.slice(0, 4),
+        genres: this.movie.genres.join("/"),
+        rating: Math.floor(this.movie.rating / 2),
+        ratingText: `( ${this.movie.voteCount} avaliações )`,
+        treatedSynopsis: this.movie.synopsis.slice(0, 100) + "...",
+        synopsis: this.movie.synopsis,
+        voteCount: this.movie.voteCount,
+      };
     },
   },
 };
@@ -141,9 +158,10 @@ $color-red-light: #ff5656;
 }
 .home {
   position: relative;
+  height: 60vh;
   &__background-image {
-    width: 100vw;
     height: 60vh;
+    width: 100vw;
     object-fit: cover;
     opacity: 0.2;
   }
@@ -169,7 +187,6 @@ $color-red-light: #ff5656;
     bottom: 0;
     width: 100%;
     color: white;
-
     margin-bottom: 1rem;
     &-heading {
       padding: 0 2rem;
