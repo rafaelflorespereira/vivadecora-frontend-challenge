@@ -36,9 +36,17 @@
       </div>
     </div>
 
-    <button class="btn" @click="getMovie">
-      pular
-    </button>
+    <section class="action-points">
+      <a class="action-points__btn action-points__btn-n-curti" @click="getMovie"
+        >Não curti!</a
+      >
+      <a class="action-points__btn action-points__btn-pular" @click="getMovie"
+        >pular</a
+      >
+      <a class="action-points__btn action-points__btn-curti" @click="getMovie"
+        >Curti!</a
+      >
+    </section>
   </div>
 </template>
 
@@ -60,6 +68,9 @@ export default {
         voteCount: 0,
       },
     };
+  },
+  mounted() {
+    this.getMovie();
   },
   methods: {
     getMovie() {
@@ -123,11 +134,14 @@ export default {
 <style lang="scss">
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
+* {
+  font-family: Tahoma, sans-serif;
+}
 .home {
   position: relative;
   &__background-image {
-    width: 100%;
-    height: 70vh;
+    width: 100vw;
+    height: 60vh;
     object-fit: cover;
     opacity: 0.2;
   }
@@ -153,7 +167,7 @@ $color-red-light: #ff5656;
     bottom: 0;
     width: 100%;
     color: white;
-    font-family: Tahoma, sans-serif;
+
     margin-bottom: 1rem;
     &-heading {
       padding: 0 2rem;
@@ -191,7 +205,30 @@ $color-red-light: #ff5656;
 .u-margin-right-small {
   margin-right: 0.4rem;
 }
-.btn {
-  position: relative;
+.action-points {
+  text-align: center;
+  &__btn {
+    display: inline;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1.1rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    &-n-curti::before {
+      content: url("../assets/n-curti.png");
+    }
+    &-pular {
+      font-size: 1.2rem;
+    }
+    &-curti {
+      color: $color-red-dark;
+    }
+    &-curti::after {
+      content: url("../assets/curti.png");
+    }
+  }
 }
 </style>
