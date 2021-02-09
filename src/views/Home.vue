@@ -18,7 +18,10 @@
           <span class="u-margin-right-small">{{ treatedYear }}</span>
           <span class="u-margin-right-small">{{ treatedGenres }}</span>
         </p>
-        <p class="card__bottom-description">{{ treatedSynopsys }}</p>
+        <p class="card__bottom-description">
+          {{ treatedSynopsys }}
+        </p>
+        <span> <a href="#" class="card__bottom-link"> Synopsis</a></span>
         <div class="card__bottom-rating">
           <span v-for="rating in 5" :key="rating">
             <img
@@ -32,7 +35,6 @@
             {{ treatedRatingText }}
           </div>
         </div>
-        <a href="#" class="card__bottom-link">Synopsis</a>
       </div>
     </div>
 
@@ -182,6 +184,7 @@ $color-red-light: #ff5656;
       font-size: 0.8rem;
     }
     &-description {
+      display: inline-block;
       padding: 0 2rem;
       font-size: 0.8rem;
     }
@@ -196,9 +199,7 @@ $color-red-light: #ff5656;
       margin-right: 4rem;
     }
     &-link {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+      color: $color-red-dark;
     }
   }
 }
