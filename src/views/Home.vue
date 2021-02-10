@@ -160,7 +160,7 @@ $color-red-light: #ff5656;
   position: relative;
   height: 60vh;
   &__background-image {
-    height: 60vh;
+    height: 100%;
     width: 100vw;
     object-fit: cover;
     opacity: 0.2;

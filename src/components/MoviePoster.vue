@@ -83,6 +83,8 @@ $font-color: #848484;
       }
     }
     &-info {
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+      width: 100%;
       text-align: left;
       padding: 1rem;
       position: absolute;
@@ -100,7 +102,7 @@ $font-color: #848484;
         display: inline;
         right: 0;
         position: absolute;
-        padding-right: inherit;
+        transform: translateX(-50%);
       }
       &--synopsis {
         display: inline-block;

@@ -41,6 +41,10 @@ export default {
 <style lang="scss">
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
+body,
+html {
+  height: 100%;
+}
 html {
   padding: 0;
   background-image: linear-gradient(
