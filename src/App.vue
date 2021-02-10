@@ -52,13 +52,16 @@ html {
 }
 .nav {
   position: relative;
+  display: block;
+  z-index: 2;
   padding: 2rem;
+
   height: 12vh;
   width: 100%;
   background-image: linear-gradient(
     to right,
-    $color-red-light,
-    $color-red-dark
+    rgba($color-red-light, 0.2),
+    rgba($color-red-dark, 0.2)
   );
   text-align: center;
   &__logo {
