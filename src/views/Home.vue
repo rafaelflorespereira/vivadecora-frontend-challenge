@@ -225,11 +225,11 @@ $color-red-light: #ff5656;
 }
 .action-points {
   text-align: center;
+
   &__btn {
-    display: inline;
     background-color: white;
-    border-radius: 2rem;
-    padding: 1.1rem;
+    border-radius: 4rem;
+    padding: 2rem;
     font-weight: 500;
     font-size: 1.4rem;
     margin: 0 2rem;
@@ -237,6 +237,8 @@ $color-red-light: #ff5656;
     cursor: pointer;
     &-n-curti::before {
       content: url("../assets/n-curti.png");
+      vertical-align: middle;
+      margin-right: 0.5rem;
     }
     &-pular {
       font-size: 1.2rem;
@@ -244,8 +246,9 @@ $color-red-light: #ff5656;
     &-curti {
       color: $color-red-dark;
     }
-    &-curti::after {
+    &-curti::before {
       content: url("../assets/curti.png");
+      margin-right: 0.5rem;
     }
   }
 }
