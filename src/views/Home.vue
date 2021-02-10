@@ -157,17 +157,19 @@ $color-red-light: #ff5656;
   font-family: Tahoma, sans-serif;
 }
 .home {
-  position: relative;
   height: 60vh;
   &__background-image {
+    display: block;
+    position: absolute;
+    top: 0;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     object-fit: cover;
     opacity: 0.2;
   }
 }
 .card {
-  position: absolute;
+  position: relative;
   display: block;
   top: 50%;
   left: 50%;
@@ -188,6 +190,7 @@ $color-red-light: #ff5656;
     width: 100%;
     color: white;
     margin-bottom: 1rem;
+
     &-heading {
       padding: 0 2rem;
       width: 50%;
@@ -203,7 +206,7 @@ $color-red-light: #ff5656;
     &-description {
       display: inline-block;
       padding: 0 2rem;
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
     &-rating {
       & span {
@@ -224,8 +227,9 @@ $color-red-light: #ff5656;
   margin-right: 0.4rem;
 }
 .action-points {
+  margin-top: 10rem;
   text-align: center;
-
+  position: relative;
   &__btn {
     background-color: white;
     border-radius: 4rem;
