@@ -55,6 +55,7 @@ $heading-color: #303030;
   position: fixed;
   background: rgba(0, 0, 0, 0.8);
   top: 0;
+  left: 0;
   height: 100vh;
   width: 100%;
   display: block;

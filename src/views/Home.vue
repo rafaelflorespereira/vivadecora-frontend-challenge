@@ -174,7 +174,8 @@ export default {
 <style lang="scss">
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
-$button-size: 8rem;
+$button-width: 12rem;
+$button-height: 2rem;
 .home {
   height: 60vh;
   &__background-image {
@@ -202,6 +203,7 @@ $button-size: 8rem;
     top: 0;
     width: 100%;
     height: 100%;
+    background-position: top;
   }
   &__bottom {
     position: absolute;
@@ -249,16 +251,28 @@ $button-size: 8rem;
   margin-top: 10rem;
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
   &__btn {
     background-color: white;
     border-radius: 4rem;
     padding: 1rem;
-    font-weight: 500;
     font-size: 1.4rem;
     margin: 0 2rem;
     text-transform: uppercase;
     cursor: pointer;
-    min-width: $button-size;
+    min-width: $button-width;
+    min-height: $button-height;
+    transition: all 0.4s;
+
+    &:hover {
+      box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.8);
+      transform: translateY(-0.4rem);
+    }
+    &:active {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+      transform: translateY(-0.2rem);
+    }
     &-n-curti::before {
       content: url("../assets/n-curti.png");
       vertical-align: middle;
@@ -266,12 +280,15 @@ $button-size: 8rem;
     }
     &-pular {
       font-size: 1.2rem;
+      min-width: 5rem;
+      line-height: 2;
     }
     &-curti {
       color: $color-red-dark;
     }
     &-curti::before {
       content: url("../assets/curti.png");
+      vertical-align: middle;
       margin-right: 0.5rem;
     }
   }
