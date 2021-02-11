@@ -82,8 +82,8 @@ $heading-color: #303030;
       display: block;
       margin: 0 auto;
       margin-bottom: 1rem;
-      height: 30%;
-      width: 18%;
+      max-height: 30%;
+      min-width: 18%;
       object-fit: cover;
       border-radius: 4px;
     }
