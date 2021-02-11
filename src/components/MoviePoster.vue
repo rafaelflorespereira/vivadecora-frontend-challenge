@@ -23,16 +23,40 @@
         <div class="poster__card-info--rating-text">{{ movie.ratingText }}</div>
         <p class="poster__card-info--synopsis">
           {{ movie.treatedSynopsis }}
-          <a href="#" class="poster__card-info--synopsis-1">Synopsis</a>
+          <a
+            href="#"
+            @click="modalState = true"
+            class="poster__card-info--synopsis-1"
+            >Synopsis</a
+          >
         </p>
       </div>
     </div>
+    <MovieModal
+      v-if="modalState == true"
+      :movie="movie"
+      @closeModal="closeModal"
+    />
   </div>
 </template>
 
 <script>
+import MovieModal from "./MovieModal";
 export default {
   props: ["movie"],
+  components: {
+    MovieModal,
+  },
+  data: () => {
+    return {
+      modalState: false,
+    };
+  },
+  methods: {
+    closeModal(event) {
+      this.modalState = event;
+    },
+  },
 };
 </script>
 

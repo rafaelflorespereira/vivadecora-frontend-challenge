@@ -41,9 +41,10 @@ export default {
 <style lang="scss">
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
-
+* {
+  font-family: Trebuchet MS, sans-serif;
+}
 html {
-  padding: 0;
   background-image: linear-gradient(
     to right,
     $color-red-light,
@@ -72,7 +73,6 @@ html {
   &__link,
   &__link:visited,
   &__link:link {
-    font-family: Verdana, sans-serif;
     color: white;
     text-decoration: none;
     margin: 0 2rem;

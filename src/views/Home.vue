@@ -22,7 +22,11 @@
         <p class="card__bottom-description">
           {{ treatedMovie.treatedSynopsis }}
         </p>
-        <span> <a href="#" class="card__bottom-link"> Synopsis</a></span>
+        <span>
+          <a href="#" @click="modalState = true" class="card__bottom-link">
+            Synopsis</a
+          ></span
+        >
         <div class="card__bottom-rating">
           <span v-for="rating in 5" :key="rating">
             <img
@@ -54,15 +58,26 @@
         >Curti!</a
       >
     </section>
+
+    <MovieModal
+      v-if="modalState == true"
+      :movie="treatedMovie"
+      @closeModal="closeModal"
+    />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import axios from "axios";
+import MovieModal from "../components/MovieModal";
 export default {
+  components: {
+    MovieModal,
+  },
   data: () => {
     return {
+      modalState: false,
       apiKey: "1beb9b16669a6131e1ea97eb6eb4f883",
       movie: {
         id: 0,
@@ -74,6 +89,7 @@ export default {
         rating: "",
         synopsis: "",
         voteCount: 0,
+        runtime: 0,
       },
     };
   },
@@ -115,6 +131,7 @@ export default {
           this.movie.rating = movieResponse.vote_average;
           this.movie.synopsis = movieResponse.overview;
           this.movie.voteCount = response.data.vote_count;
+          this.movie.runtime = response.data.runtime;
         })
         .catch((error) => {
           console.log(error);
@@ -128,6 +145,9 @@ export default {
       console.log(this.treatedMovie);
       this.$emit("notLikedMovies", this.treatedMovie);
       this.getMovie();
+    },
+    closeModal(event) {
+      this.modalState = event;
     },
   },
   computed: {
@@ -144,6 +164,7 @@ export default {
         treatedSynopsis: this.movie.synopsis.slice(0, 100) + "...",
         synopsis: this.movie.synopsis,
         voteCount: this.movie.voteCount,
+        runtime: this.movie.runtime,
       };
     },
   },
@@ -153,9 +174,7 @@ export default {
 <style lang="scss">
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
-* {
-  font-family: Tahoma, sans-serif;
-}
+
 .home {
   height: 60vh;
   &__background-image {
