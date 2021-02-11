@@ -174,7 +174,7 @@ export default {
 <style lang="scss">
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
-
+$button-size: 8rem;
 .home {
   height: 60vh;
   &__background-image {
@@ -252,12 +252,13 @@ $color-red-light: #ff5656;
   &__btn {
     background-color: white;
     border-radius: 4rem;
-    padding: 2rem;
+    padding: 1rem;
     font-weight: 500;
     font-size: 1.4rem;
     margin: 0 2rem;
     text-transform: uppercase;
     cursor: pointer;
+    min-width: $button-size;
     &-n-curti::before {
       content: url("../assets/n-curti.png");
       vertical-align: middle;

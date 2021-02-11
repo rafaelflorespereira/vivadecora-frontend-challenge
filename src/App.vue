@@ -43,6 +43,9 @@ $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
 * {
   font-family: Trebuchet MS, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 html {
   background-image: linear-gradient(
