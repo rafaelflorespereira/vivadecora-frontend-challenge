@@ -1,26 +1,23 @@
 <template>
   <div class="app">
-    <div id="nav" class="nav">
-      <img src="./assets\logo-viva-decora.png" alt="logo" class="nav__logo" />
-      <router-link class="nav__link" to="/">Filmes nao curados</router-link>
-      <router-link class="nav__link" to="liked-movies"
-        >Filmes Curtidos</router-link
-      >
-      <router-link class="nav__link" to="not-liked-movies"
-        >Filmes Nao Curtidos</router-link
-      >
-    </div>
-    <router-view
-      @notLikedMovies="getNotLikedMovies"
-      @likedMovies="getLikedMovies"
-      :likedMovies="likedMovies"
-      :notLikedMovies="notLikedMovies"
-    ></router-view>
+    <Navbar />
+    <transition name="fade" mode="out-in">
+      <router-view
+        @notLikedMovies="getNotLikedMovies"
+        @likedMovies="getLikedMovies"
+        :likedMovies="likedMovies"
+        :notLikedMovies="notLikedMovies"
+      ></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
+import Navbar from "./components/Navbar";
 export default {
+  components: {
+    Navbar,
+  },
   data: () => {
     return {
       likedMovies: [],
@@ -54,36 +51,16 @@ html {
     $color-red-dark
   );
 }
-.nav {
-  position: relative;
-  display: block;
-  z-index: 2;
-  padding: 2rem;
 
-  height: 12vh;
-  width: 100%;
-  background-image: linear-gradient(
-    to right,
-    rgba($color-red-light, 0.2),
-    rgba($color-red-dark, 0.2)
-  );
-  text-align: center;
-  &__logo {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-  }
-  &__link,
-  &__link:visited,
-  &__link:link {
-    color: white;
-    text-decoration: none;
-    margin: 0 2rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-  }
-  &__link.router-link-exact-active {
-    border-bottom: 2px solid white;
-  }
+/* Animation transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s;
+}
+.fade-enter {
+  transform: translateX(100%);
+}
+.fade-leave-active {
+  transform: translateX(-100%);
 }
 </style>
