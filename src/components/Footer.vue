@@ -9,7 +9,7 @@ export default {};
 <style>
 .footer {
   content: "";
-  position: absolute;
+  position: fixed;
   display: block;
   bottom: 0;
   left: 0;

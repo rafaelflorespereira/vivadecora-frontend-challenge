@@ -249,7 +249,7 @@ $button-height: 2rem;
   margin-right: 0.4rem;
 }
 .action-points {
-  margin-top: 10rem;
+  margin-top: 6rem;
   text-align: center;
   position: relative;
   display: flex;
