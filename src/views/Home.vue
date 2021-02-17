@@ -176,7 +176,7 @@ export default {
 $color-red-dark: #ff1c1c;
 $color-red-light: #ff5656;
 $button-width: 12rem;
-$button-height: 2rem;
+$button-height: 1rem;
 .home {
   height: 60vh;
   &__background-image {
@@ -265,32 +265,68 @@ $button-height: 2rem;
     min-width: $button-width;
     min-height: $button-height;
     transition: all 0.4s;
-
+    @media (max-width: 320px) {
+      margin: 0 auto;
+      min-width: 0;
+      border-radius: 3rem;
+    }
     &:hover {
       box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.8);
       transform: translateY(-0.4rem);
+      @media (max-width: 320px) {
+        box-shadow: none;
+        transform: translateY(0);
+      }
     }
     &:active {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
       transform: translateY(-0.2rem);
+      @media (max-width: 320px) {
+        box-shadow: none;
+        transform: translateY(0);
+      }
     }
     &-n-curti::before {
       content: url("../assets/n-curti.png");
       vertical-align: middle;
       margin-right: 0.5rem;
     }
+    &-n-curti {
+      @media (max-width: 320px) {
+        content: url("../assets/n-curti1.png");
+        padding: 0.6rem;
+        margin: auto;
+      }
+    }
     &-pular {
       font-size: 1.2rem;
       min-width: 5rem;
       line-height: 2;
-    }
-    &-curti {
-      color: $color-red-dark;
+      @media (max-width: 320px) {
+        font-size: 1.1rem;
+        line-height: 1;
+        display: block;
+        margin: auto;
+        padding: 1.3rem;
+        height: 1rem;
+        font-weight: bold;
+      }
     }
     &-curti::before {
       content: url("../assets/curti.png");
       vertical-align: middle;
       margin-right: 0.5rem;
+      @media (max-width: 320px) {
+        content: " ";
+      }
+    }
+    &-curti {
+      color: $color-red-dark;
+      @media (max-width: 320px) {
+        content: url("../assets/curti1.png");
+        padding: 0.6rem;
+        margin: auto;
+      }
     }
   }
 }

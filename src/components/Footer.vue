@@ -11,7 +11,7 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
 .footer {
   content: "";
   position: fixed;
@@ -21,9 +21,13 @@ export default {};
   width: 100%;
   height: 5vh;
   background-color: rgba(56, 56, 56, 0.95);
-  border-top: 2px solid white;
+  border-top: 2px solid #d2dae2;
   text-align: center;
   line-height: 3.5;
+  @media (max-width: 320px) {
+    display: none;
+    visibility: hidden;
+  }
 }
 .icon {
   filter: invert(100%);

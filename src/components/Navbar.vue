@@ -19,7 +19,6 @@ $color-red-light: #ff5656;
   display: block;
   z-index: 2;
   padding: 2rem;
-
   height: 12vh;
   width: 100%;
   background-image: linear-gradient(
@@ -28,6 +27,10 @@ $color-red-light: #ff5656;
     rgba($color-red-dark, 0.2)
   );
   text-align: center;
+  @media (max-width: 320px) {
+    display: none;
+    visibility: hidden;
+  }
   &__logo {
     display: block;
     margin: 0 auto;
@@ -41,6 +44,10 @@ $color-red-light: #ff5656;
     margin: 0 2rem;
     font-size: 1rem;
     text-transform: uppercase;
+    @media (max-width: 320px) {
+      display: none;
+      visibility: hidden;
+    }
   }
   &__link.router-link-exact-active {
     border-bottom: 2px solid white;
