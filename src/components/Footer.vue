@@ -1,5 +1,10 @@
 <template>
-  <div class="footer"></div>
+  <div class="footer">
+    <ion-icon class="icon" name="logo-facebook"></ion-icon>
+    <ion-icon class="icon" name="logo-instagram"></ion-icon>
+    <ion-icon class="icon" name="logo-pinterest"></ion-icon>
+    <ion-icon class="icon" name="logo-google"></ion-icon>
+  </div>
 </template>
 
 <script>
@@ -15,7 +20,15 @@ export default {};
   left: 0;
   width: 100%;
   height: 5vh;
-  background-color: #383838;
-  border-top: 2px solid;
+  background-color: rgba(56, 56, 56, 0.95);
+  border-top: 2px solid white;
+  text-align: center;
+  line-height: 3.5;
+}
+.icon {
+  filter: invert(100%);
+  display: inline-block;
+  font-size: 1.4rem;
+  margin-right: 2rem;
 }
 </style>
