@@ -19,14 +19,6 @@
           <span class="u-margin-right-small">{{ treatedMovie.year }}</span>
           <span class="u-margin-right-small">{{ treatedMovie.genres }}</span>
         </p>
-        <p class="card__bottom-description">
-          {{ treatedMovie.treatedSynopsis }}
-        </p>
-        <span>
-          <a href="#" @click="modalState = true" class="card__bottom-link">
-            Synopsis</a
-          ></span
-        >
         <div class="card__bottom-rating">
           <span v-for="rating in 5" :key="rating">
             <img
@@ -36,13 +28,21 @@
             />
             <img v-else src="..\assets\favorite_.png" alt="" />
           </span>
-          <div>
+          <div class="card__bottom-rating--text">
             {{ treatedMovie.ratingText }}
           </div>
         </div>
+        <p class="card__bottom-description">
+          {{ treatedMovie.treatedSynopsis }}
+        </p>
+        <span>
+          <a href="#" @click="modalState = true" class="card__bottom-link">
+            Synopsis</a
+          ></span
+        >
       </div>
     </div>
-    <!-- //TODO: end todo -->
+
     <section class="action-points">
       <a
         class="action-points__btn action-points__btn-n-curti"
@@ -162,7 +162,7 @@ export default {
         genres: this.movie.genres.join("/"),
         rating: Math.floor(this.movie.rating / 2),
         ratingText: `( ${this.movie.voteCount} avaliações )`,
-        treatedSynopsis: this.movie.synopsis.slice(0, 100) + "...",
+        treatedSynopsis: this.movie.synopsis.slice(0, 26) + "...",
         synopsis: this.movie.synopsis,
         voteCount: this.movie.voteCount,
         runtime: this.movie.runtime,
@@ -197,6 +197,11 @@ $button-height: 1rem;
   transform: translate(-50%, -50%);
   height: 50vh;
   width: 60vw;
+  @media (max-width: 320px) {
+    top: 40%;
+    height: 60vh;
+    width: 90vw;
+  }
   &__background-image {
     border-radius: 5px;
     background-size: cover;
@@ -209,26 +214,36 @@ $button-height: 1rem;
   &__bottom {
     position: absolute;
     bottom: 0;
-    width: 100%;
     color: white;
-    margin-bottom: 1rem;
-
+    width: 90%;
+    padding: 2rem;
+    @media (max-width: 320px) {
+      padding: 1.2rem;
+    }
     &-heading {
-      padding: 0 2rem;
       width: 50%;
       margin: 0.2rem 0;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       font-weight: 800;
+      @media (max-width: 320px) {
+        width: 70%;
+        font-size: 1.4rem;
+        margin: 1rem 0;
+      }
     }
     &-subheading {
       text-transform: uppercase;
-      padding: 0 2rem;
-      font-size: 0.8rem;
+      font-size: 1rem;
+      @media (max-width: 320px) {
+        display: none;
+      }
     }
     &-description {
       display: inline-block;
-      padding: 0 2rem;
-      font-size: 1rem;
+      font-size: 1.2rem;
+      @media (max-width: 320px) {
+        font-size: 0.9rem;
+      }
     }
     &-rating {
       & span {
@@ -238,7 +253,19 @@ $button-height: 1rem;
       position: absolute;
       top: 0;
       right: 0;
-      margin-right: 4rem;
+      padding: 2rem;
+      @media (max-width: 320px) {
+        position: relative;
+        font-size: 0.8rem;
+        right: 0;
+        padding: 0;
+        margin: 0.5rem 0;
+      }
+      &--text {
+        @media (max-width: 320px) {
+          float: right;
+        }
+      }
     }
     &-link {
       color: $color-red-dark;
@@ -254,6 +281,9 @@ $button-height: 1rem;
   position: relative;
   display: flex;
   justify-content: center;
+  @media (max-width: 320px) {
+    margin-top: 1rem;
+  }
   &__btn {
     background-color: white;
     border-radius: 4rem;

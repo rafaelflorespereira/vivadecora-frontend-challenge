@@ -72,7 +72,9 @@ $color-red-light: #ff5656;
   display: block;
   z-index: 2;
   padding: 2rem;
-
+  @media (max-width: 320px) {
+    padding: 1rem;
+  }
   text-align: center;
   background-image: linear-gradient(
     to right,
