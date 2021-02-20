@@ -309,6 +309,7 @@ $button-height: 1rem;
         margin: auto;
         padding: 1.3rem;
         height: 1rem;
+        min-width: 3rem;
         font-weight: bold;
       }
     }

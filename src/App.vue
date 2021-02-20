@@ -1,6 +1,6 @@
 <template>
-  <div class="app">
-    <Navbar />
+  <div ref="main" class="app">
+    <Navbar @isSidebarOpen="handleSidebar" />
     <transition name="fade" mode="out-in">
       <router-view
         @notLikedMovies="getNotLikedMovies"
@@ -34,6 +34,13 @@ export default {
     getNotLikedMovies(movie) {
       this.notLikedMovies.push(movie);
     },
+    handleSidebar(event) {
+      if (event == true) {
+        this.$refs.main.style.marginLeft = "250px";
+      } else {
+        this.$refs.main.style.marginLeft = "0px";
+      }
+    },
   },
 };
 </script>
@@ -54,7 +61,6 @@ html {
     $color-red-dark
   );
 }
-
 /* Animation transitions */
 .fade-enter-active,
 .fade-leave-active {
