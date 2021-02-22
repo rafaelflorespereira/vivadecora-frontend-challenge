@@ -70,6 +70,9 @@ $font-color: #848484;
   color: $font-color;
   min-height: 60vh;
   text-align: center;
+  @media (max-width: 320px) {
+    padding: 0.6rem;
+  }
   &-empty {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -95,6 +98,9 @@ $font-color: #848484;
     margin: 2rem;
     border-radius: 4px;
     overflow: hidden;
+    @media (max-width: 320px) {
+      margin: 2rem 0;
+    }
     &--background {
       background-image: linear-gradient(to top, black, white);
       &-image {

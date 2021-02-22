@@ -72,6 +72,7 @@ $heading-color: #303030;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
     padding: 2rem;
     text-align: center;
+    box-sizing: border-box;
     background-image: linear-gradient(
       to bottom,
       $color-red-light 0,
@@ -79,14 +80,26 @@ $heading-color: #303030;
       white $header-spacement,
       white
     );
+    @media (max-width: 320px) {
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      margin: 0.5rem;
+      width: 95vw;
+      height: 95vh;
+      padding: 0.5rem;
+    }
     &--poster {
       display: block;
-      margin: 0 auto;
-      margin-bottom: 1rem;
+      margin: 1rem auto;
+      margin-bottom: 2rem;
       max-height: 30%;
       min-width: 18%;
       object-fit: cover;
       border-radius: 4px;
+      @media (max-width: 320px) {
+        margin-bottom: 1rem;
+      }
     }
     &--btn-close {
       position: absolute;
@@ -100,10 +113,16 @@ $heading-color: #303030;
       line-height: 1;
       transform: translate(30%, -30%);
       cursor: pointer;
+      @media (max-width: 320px) {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
     }
     &--heading {
       font-size: 1.4rem;
-      font-weight: bold;
+      font-weight: bolder;
       text-transform: uppercase;
       color: $heading-color;
     }
@@ -123,6 +142,10 @@ $heading-color: #303030;
       font-size: 1.1rem;
       margin: 2rem;
       text-align: left;
+      @media (max-width: 320px) {
+        margin: 0.8rem;
+        height: fit-content;
+      }
     }
   }
 }

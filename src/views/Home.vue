@@ -301,7 +301,7 @@ $button-height: 1rem;
       border-radius: 3rem;
     }
     &:hover {
-      box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.8);
+      box-shadow: 0 1.6rem 3rem rgba(0, 0, 0, 0.8);
       transform: translateY(-0.4rem);
       @media (max-width: 320px) {
         box-shadow: none;
