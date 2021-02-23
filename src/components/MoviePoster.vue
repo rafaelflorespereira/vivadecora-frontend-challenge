@@ -80,6 +80,11 @@ $font-color: #848484;
     top: 50%;
     left: 50%;
     text-align: center;
+    & img {
+      @media (max-width: 320px) {
+        height: 220px;
+      }
+    }
   }
   &::after {
     content: "";
@@ -89,7 +94,11 @@ $font-color: #848484;
 }
 
 .poster {
-  display: inline;
+  display: inline-block;
+  @media (max-width: 320px) {
+    width: 145px;
+    max-height: 174px;
+  }
   &__card {
     position: relative;
     display: inline-block;
@@ -99,7 +108,9 @@ $font-color: #848484;
     border-radius: 4px;
     overflow: hidden;
     @media (max-width: 320px) {
-      margin: 2rem 0;
+      margin: 0;
+      width: 135px;
+      max-height: 174px;
     }
     &--background {
       background-image: linear-gradient(to top, black, white);
@@ -120,10 +131,16 @@ $font-color: #848484;
       position: absolute;
       bottom: 0;
       color: white;
+      @media (max-width: 320px) {
+        width: auto;
+      }
       &--heading {
         width: 70%;
         font-size: 1.2rem;
         font-weight: 800;
+        @media (max-width: 320px) {
+          width: auto;
+        }
       }
       &--rating-img {
         display: inline;
@@ -133,9 +150,15 @@ $font-color: #848484;
         right: 0;
         position: absolute;
         transform: translateX(-50%);
+        @media (max-width: 320px) {
+          display: none;
+        }
       }
       &--synopsis {
         display: inline-block;
+        @media (max-width: 320px) {
+          display: none;
+        }
         &-1 {
           display: inline;
           color: $color-red-dark;

@@ -195,12 +195,12 @@ $button-height: 1rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 50vh;
-  width: 60vw;
+  height: 460px;
+  width: 700px;
   @media (max-width: 320px) {
     top: 40%;
-    height: 60vh;
-    width: 90vw;
+    height: 350px;
+    width: 294px;
   }
   &__background-image {
     border-radius: 5px;
@@ -276,13 +276,13 @@ $button-height: 1rem;
   margin-right: 0.4rem;
 }
 .action-points {
-  margin-top: 6rem;
+  margin-top: 12rem;
   text-align: center;
   position: relative;
   display: flex;
   justify-content: center;
   @media (max-width: 320px) {
-    margin-top: 1rem;
+    margin-top: 0;
   }
   &__btn {
     background-color: white;
