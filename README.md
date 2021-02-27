@@ -2,6 +2,17 @@
 
 ## Project setup
 
+### Clone the repo
+
+```
+git clone 'this project'
+```
+### Go to the paste
+
+```
+cd 'folder-name'
+```
+
 ```
 npm install
 ```
