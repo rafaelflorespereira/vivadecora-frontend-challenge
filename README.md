@@ -12,6 +12,7 @@ git clone 'this project'
 ```
 cd 'folder-name'
 ```
+### Install dependencies
 
 ```
 npm install
